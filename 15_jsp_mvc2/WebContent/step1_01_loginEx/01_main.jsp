@@ -32,7 +32,7 @@
 			username="root"
 			password="1234" 
 			type="javax.sql.DataSource"
-			url="jdbc:mysql://localhost:3306/"데이터베이스명"?serverTimezone=UTC"
+			url="jdbc:mysql://localhost:3306/MVC2_login_EX?serverTimezone=UTC"
 		/> 
  
  --%>
