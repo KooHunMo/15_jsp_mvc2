@@ -60,7 +60,7 @@ public class BoardBasicDao {
 				model.setReadCount(rs.getInt("READ_COUNT"));
 				model.setContent(rs.getString("CONTENT"));
 
-				boardList.add(model);
+				boardList.add(model); // boardList를 select(조회)할때만 model을 넣고 데이터 수정 할 때는 model을 사용하지 않는다 - DB 전체 줄을 담아놓을 그릇이 model이기 때문이다
 				
 			}
 		} catch (Exception e) {
@@ -86,11 +86,11 @@ public class BoardBasicDao {
 
 			pstmt = conn.prepareStatement("UPDATE BOARD SET READ_COUNT=READ_COUNT+1 WHERE NUM=?");
 			pstmt.setInt(1, num);
-			pstmt.executeUpdate();
+			pstmt.executeUpdate(); // 업데이트를 먼저하고
 
 			pstmt = conn.prepareStatement("SELECT * FROM BOARD WHERE NUM=?");
 			pstmt.setInt(1, num);
-			rs = pstmt.executeQuery();
+			rs = pstmt.executeQuery();	// 조회를 나중에 한다 따라서 pstmt가 꽉 차있기 때문에 model을 만들어서 DB를 넣고 가져오는 것이다.
 			
 			if (rs.next()) {
 				model.setNum(rs.getInt("NUM"));
@@ -111,7 +111,7 @@ public class BoardBasicDao {
 			if (conn != null)  {try {conn.close();}  catch (SQLException e) {}}
 		}
 		
-		return model;
+		return model; // 모델을 반환하여 Dto에 넣는다 -> 다음 조회때 이미 정보가 저장되어 있을 수 있도록!
 		
 	}
 
