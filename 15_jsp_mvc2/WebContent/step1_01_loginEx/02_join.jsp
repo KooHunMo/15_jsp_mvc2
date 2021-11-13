@@ -72,6 +72,6 @@
 				<input type="reset" value="다시 쓰기">
 			</div>
 		</form>		
-	</div>
+	</div>	
 </body>
 </html>
