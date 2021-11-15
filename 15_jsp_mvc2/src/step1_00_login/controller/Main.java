@@ -17,13 +17,13 @@ public class Main extends HttpServlet {
        
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		HttpSession session = request.getSession();
+		HttpSession session = request.getSession();  //세션을 키고 연결한다
 		
-		String id = (String)session.getAttribute("id");
+		String id = (String)session.getAttribute("id");  // 세션에 getAttribute를 사용하여 id를 넣고 String id에 넣는다
 		request.setAttribute("id", id);
 		
-		RequestDispatcher dis = request.getRequestDispatcher("step1_01_loginEx/01_main.jsp");
-		dis.forward(request, response);
+		RequestDispatcher dis = request.getRequestDispatcher("step1_01_loginEx/01_main.jsp"); // 그것을 메인 페이지로 포워딩해준다.
+		dis.forward(request, response); // 포워딩 코드
 		
 	}
 
