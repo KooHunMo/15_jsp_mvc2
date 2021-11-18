@@ -58,7 +58,5 @@ public class Apply extends HttpServlet {
 		dis.forward(request, response);
 		
 	}
-	
-	
 
 }
