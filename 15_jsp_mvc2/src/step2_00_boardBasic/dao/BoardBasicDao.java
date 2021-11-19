@@ -184,9 +184,7 @@ public class BoardBasicDao {
 		try {
 			
 				conn = getConnection();
-				String sql = "INSERT INTO BOARD(WRITER,EMAIL,SUBJECT,PASSWORD,REG_DATE,READ_COUNT,CONTENT)";
-					   sql += "VALUES(?, ?, ?, ?, now(), 0, ?)";
-				pstmt = conn.prepareStatement(sql);
+				pstmt = conn.prepareStatement("INSERT INTO BOARD(WRITER,EMAIL,SUBJECT,PASSWORD,REG_DATE,READ_COUNT,CONTENT) VALUES(?, ?, ?, ?, now(), 0, ?)");
 				pstmt.setString(1, bdto.getWriter());
 				pstmt.setString(2, bdto.getEmail());
 				pstmt.setString(3, bdto.getSubject());
