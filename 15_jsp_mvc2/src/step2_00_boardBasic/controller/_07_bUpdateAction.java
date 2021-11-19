@@ -40,7 +40,7 @@ public class _07_bUpdateAction extends HttpServlet {
 		bdto.setContent(request.getParameter("content"));
 		
 		boolean isUpdate = BoardBasicDao.getInstance().updateBoard(bdto);
-		request.setAttribute("isUpdate", isUpdate);
+		request.setAttribute("isUpdate", isUpdate); 
 		
 		RequestDispatcher dis = request.getRequestDispatcher("step2_01_boardBasicEx/07_bUpdatePro.jsp");
 		dis.forward(request, response);

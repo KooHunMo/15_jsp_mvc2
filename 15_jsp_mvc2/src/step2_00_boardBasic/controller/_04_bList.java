@@ -30,7 +30,7 @@ public class _04_bList extends HttpServlet {
 		
 		request.setCharacterEncoding("utf-8");
 		
-		ArrayList<BoardBasicDto> boardList = BoardBasicDao.getInstance().getAllBoard();
+		ArrayList<BoardBasicDto> boardList = BoardBasicDao.getInstance().getAllBoard(); 
 		
 		request.setAttribute("boardList", boardList);
 		
